@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Welcome to My Website</title>
+    <style>
+        body {
+            background: linear-gradient(to bottom, red, orange, yellow, green, blue, indigo, violet);
+            animation: scrollBackground 10s linear infinite;
+            overflow: hidden;
+        }
+        #bindex, #blogin{
+            background : white;
+            border-radius : 6px;
+        }
+        @keyframes scrollBackground {
+            0% {
+                background-position: 0% 0%;
+            }
+
+            100% {
+                background-position: 0% 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Welcome to My Website</h1>
+
+    <nav>
+        <ul id = "bindex">
+            <li><a href="/">Home</a></li>
+            <li><a href="/login">Login</a></li>
+            <li><a href = "/signup">Signup</a></li>
+        </ul>
+    </nav>
+
+    <p id = "blogin">...This is the homepage of my website.</p>
+
+    <script>
+        // Adjust the document height to allow scrolling effect
+        document.body.style.height = `${window.innerHeight}px`;
+    </script>
+</body>
+
+</html>

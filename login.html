@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>{{.Title}}</title>
+    <script>
+        async function login(event) {
+            event.preventDefault();
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+            const response = await fetch("/login", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ email, password })
+            });
+            if (response.ok) {
+                window.location.href = "/";
+            } else {
+                document.getElementById("error").textContent = "Incorrect credentials!";
+            }
+        }
+    </script>
+</head>
+
+<body style="background : cyan;">
+    <h1>Login</h1>
+    <form onsubmit="login(event)">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br><br>
+        <input type="submit" value="Submit">
+    </form>
+    <p id="error" style="color: red;"></p>
+</body>
+
+</html>
